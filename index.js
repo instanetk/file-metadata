@@ -1,9 +1,11 @@
+const cors = require("cors");
 const express = require("express");
 const fileUpload = require("express-fileupload");
 const app = express();
 
 app.use("/public", express.static(process.cwd() + "/public"));
 app.use(fileUpload());
+app.use(cors());
 
 app.get("/", function (req, res) {
   res.sendFile(process.cwd() + "/views/index.html");
